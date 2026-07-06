@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Finance Tracker Pro</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<title>Finance Tracker</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
+<h1>💰 Personal Finance Tracker</h1>
+
 <div class="container">
-
-  <h1>💰 Finance Tracker Pro</h1>
-
-  <button onclick="toggleDark()">🌙 Dark Mode</button>
 
   <!-- Budget -->
   <div class="card">
-    <h3>Budget</h3>
-    <input type="number" id="budgetInput" placeholder="Set budget">
+    <h2>Budget</h2>
+    <input type="number" id="budget" placeholder="Set budget">
     <button onclick="setBudget()">Set</button>
-    <p id="budgetText"></p>
-    <div id="progressBar"></div>
+    <p id="budgetStatus"></p>
+  </div>
+
+  <!-- Month Filter -->
+  <div class="card">
+    <h2>Filter by Month</h2>
+    <select id="monthFilter" onchange="render()">
+      <option value="all">All</option>
+      <option value="0">Jan</option>
+      <option value="1">Feb</option>
+      <option value="2">Mar</option>
+      <option value="3">Apr</option>
+      <option value="4">May</option>
+      <option value="5">Jun</option>
+      <option value="6">Jul</option>
+      <option value="7">Aug</option>
+      <option value="8">Sep</option>
+      <option value="9">Oct</option>
+      <option value="10">Nov</option>
+      <option value="11">Dec</option>
+    </select>
   </div>
 
   <!-- Add Expense -->
   <div class="card">
-    <h3>Add Expense</h3>
+    <h2>Add / Edit Expense</h2>
+
     <input id="title" placeholder="Title">
     <input id="amount" type="number" placeholder="Amount">
 
@@ -41,35 +59,22 @@
     <button onclick="addExpense()">Add</button>
   </div>
 
-  <!-- Filters -->
-  <div class="card">
-    <h3>Filter</h3>
-    <select id="filter" onchange="render()">
-      <option value="all">All</option>
-      <option value="Food">Food</option>
-      <option value="Travel">Travel</option>
-      <option value="Shopping">Shopping</option>
-      <option value="Education">Education</option>
-      <option value="Bills">Bills</option>
-    </select>
-  </div>
-
   <!-- Summary -->
   <div class="card">
-    <h3>Summary</h3>
+    <h2>Monthly Summary</h2>
     <p id="total"></p>
     <p id="remaining"></p>
   </div>
 
   <!-- List -->
   <div class="card">
-    <h3>Expenses</h3>
+    <h2>Expenses</h2>
     <ul id="list"></ul>
   </div>
 
   <!-- Charts -->
   <div class="card">
-    <h3>Analytics</h3>
+    <h2>Analytics</h2>
     <canvas id="pie"></canvas>
     <canvas id="bar"></canvas>
   </div>
